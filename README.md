@@ -1,24 +1,59 @@
-# README
-hiii tushar
-This README would normally document whatever steps are necessary to get the
-application up and running.
+hello tushar
+<!-- <p id="notice"><%= notice %></p> -->
 
-Things you may want to cover:
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
 
-* Ruby version
+  <tbody>
+    <% @articals.each do |artical| %>
+      <tr>
+        <td><%= artical.title %></td>
+        <td><%= artical.description %></td>
+        <td><%= link_to 'Show', artical %></td>
+        <td><%= link_to 'Edit', edit_artical_path(artical) %></td>
+        <td><%= link_to 'Destroy', artical, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-* System dependencies
+<br>
 
-* Configuration
+<%= link_to 'Create New Artical', new_artical_path %><br><br>
+<%= link_to 'Home page', root_path %>
+ -->
 
-* Database creation
+<!--  <%= form_with(model: @artical, local: true) do |form| %>
+  <% if @artical.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(artical.errors.count, "error") %> prohibited this artical from being saved:</h2>
 
-* Database initialization
+      <ul>
+        <% artical.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-* How to run the test suite
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
 
-* Services (job queues, cache servers, search engines, etc.)
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
 
-* Deployment instructions
-
-* ...
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+ -->

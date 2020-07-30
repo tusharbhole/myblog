@@ -26,29 +26,21 @@ class ArticalsController < ApplicationController
   # POST /articals.json
   def create
     @artical = Artical.new(artical_params)
-
-    respond_to do |format|
-      if @artical.save
-        format.html { redirect_to @artical, notice: 'Artical was successfully created.' }
-        format.json { render :show, status: :created, location: @artical }
-      else
-        format.html { render :new }
-        format.json { render json: @artical.errors, status: :unprocessable_entity }
-      end
+    @artical.user = current_user
+    if @artical.save
+      flash[:notice] = "Article was created successfully."
+      redirect_to @artical
+    else
+      render 'new'
     end
   end
 
-  # PATCH/PUT /articals/1
-  # PATCH/PUT /articals/1.json
   def update
-    respond_to do |format|
-      if @artical.update(artical_params)
-        format.html { redirect_to @artical, notice: 'Artical was successfully updated.' }
-        format.json { render :show, status: :ok, location: @artical }
-      else
-        format.html { render :edit }
-        format.json { render json: @artical.errors, status: :unprocessable_entity }
-      end
+    if @artical.update(artical_params)
+      flash[:notice] = "Article was updated successfully."
+      redirect_to @artical
+    else
+      render 'edit'
     end
   end
 
@@ -56,10 +48,7 @@ class ArticalsController < ApplicationController
   # DELETE /articals/1.json
   def destroy
     @artical.destroy
-    respond_to do |format|
-      format.html { redirect_to articals_url, notice: 'Artical was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to articals_path
   end
 
   private

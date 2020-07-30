@@ -1,5 +1,5 @@
-<%= form_with(model: artical, local: true) do |form| %>
-  <% if artical.errors.any? %>
+<%= form_with(model: @artical, local: true) do |form| %>
+  <% if @artical.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(artical.errors.count, "error") %> prohibited this artical from being saved:</h2>
 
@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
+  <div class="field text-center">
+    <%= form.label :title %><br/>
     <%= form.text_field :title %>
-  </div>
+  </div>  
 
-  <div class="field">
+  <div class="field text-center">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
 
-  <div class="actions">
+  <div class="actions text-center">
     <%= form.submit %>
   </div>
 <% end %>
